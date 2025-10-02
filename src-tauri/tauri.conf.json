@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.tauri.app/config/2",
+  "productName": "PhD Project Manager",
+  "version": "0.3.0",
+  "identifier": "com.phdmanager.app",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devUrl": "http://localhost:1420",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "PhD Project Manager",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 800,
+        "minHeight": 600,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": { "csp": null }
+  },
+  "plugins": {
+    "sql": { "default": "sqlite:phd_projects.db" },
+    "opener": {},
+    "fs": {
+      "readFile": true,
+      "writeFile": true,
+      "createDir": true,
+      "exists": true,
+      "readDir": true
+    },
+    "globalShortcut": {},
+    "updater": {
+      "active": true,
+      "endpoints": [
+        "https://example.com/tauri/updates/latest.json"
+      ],
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEM1QzhENzZFNDU2NDg4MEIKUldRTGlHUkZidGZJeGUwNHNRRW1jaEJWWVl5bzM0Z0J6RWExNmV5YzMrNmJpVGxTZUVRV2tjREIK"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}
